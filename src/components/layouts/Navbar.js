@@ -28,7 +28,9 @@ const Navbar = () => {
             )
           })}
         </ul>
-        <UserOption />
+        <div className='user-option'>
+          <UserOption />
+        </div>
       </div>
     </Wrapper>
   )

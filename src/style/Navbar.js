@@ -32,6 +32,9 @@ const Wrapper = styled.nav`
   .nav-links {
     display: none;
   }
+  .user-option {
+    display: none;
+  }
 
   @media (min-width: 992px) {
     .nav-toggle {
@@ -58,6 +61,9 @@ const Wrapper = styled.nav`
           border-bottom: 2px solid var(--grey-700);
         }
       }
+    }
+    .user-option {
+      display: grid;
     }
   }
 `
