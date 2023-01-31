@@ -5,8 +5,10 @@ import { links } from '../utils/NavLinks'
 import { FaBars } from 'react-icons/fa'
 import { Wrapper } from '../../style/Navbar'
 import UserOption from '../others/UserOption'
+import { useProductsContext } from '../../context/ProductsContext'
 
 const Navbar = () => {
+  const { openSidebar } = useProductsContext()
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -14,7 +16,11 @@ const Navbar = () => {
           <Link to='/'>
             <img src={logo} alt='company logo' />
           </Link>
-          <button type='button' className='nav-toggle'>
+          <button
+            type='button'
+            className='nav-toggle'
+            onClick={() => openSidebar()}
+          >
             <FaBars />
           </button>
         </div>
