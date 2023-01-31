@@ -23,11 +23,11 @@ export const Wrapper = styled.div`
   }
   .cart-value {
     position: absolute;
-    top: -10px;
-    right: -16px;
+    top: -8px;
+    right: -14px;
     background: red;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
     font-size: 0.65rem;
     font-weight: bold;
     color: var(--white);
-    padding: 3px;
+    padding: 10px;
   }
   .user-btn {
     display: flex;
@@ -49,5 +49,8 @@ export const Wrapper = styled.div`
     svg {
       margin-left: 5px;
     }
+  }
+  @media (max-width: 992px) {
+    margin: 0 auto;
   }
 `
