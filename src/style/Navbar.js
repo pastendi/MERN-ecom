@@ -17,7 +17,6 @@ const Wrapper = styled.nav`
     img {
       width: 80px;
       height: 60px;
-      margin-left: -15px;
     }
   }
   .nav-toggle {

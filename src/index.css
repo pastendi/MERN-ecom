@@ -69,7 +69,6 @@ body {
 
 p {
   margin-bottom: 1.5 rem;
-  max-width: 40em;
 }
 
 h1,
@@ -251,12 +250,12 @@ ul {
 }
 /* title */
 .title {
-  text-align: center;
+  text-align: left;
 }
-.title-underline {
-  background: var(--primary-500);
-  width: 7rem;
-  height: 0.25rem;
-  margin: 0 auto;
+.underline {
   margin-top: -1rem;
+  margin-bottom: 1rem;
+  width: 8.5rem;
+  height: 0.25rem;
+  background: var(--primary-500);
 }
