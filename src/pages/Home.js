@@ -1,10 +1,18 @@
 import React from 'react'
-import { Welcome } from '../components/homepage'
+import {
+  Welcome,
+  FeaturedProducts,
+  Services,
+  Contacts,
+} from '../components/homepage'
 
 const Home = () => {
   return (
     <>
       <Welcome />
+      <FeaturedProducts />
+      <Services />
+      <Contacts />
     </>
   )
 }

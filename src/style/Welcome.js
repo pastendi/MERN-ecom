@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.section`
-  min-height: calc(100vh - 10rem);
+  min-height: 60vh;
   display: grid;
   place-items: center;
   .img-container {
@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
     line-height: 2;
     max-width: 45em;
     margin-bottom: 2rem;
-    color: var(--clr-grey-5);
+    color: var(--grey-700);
     font-size: 1rem;
   }
   @media (min-width: 992px) {
