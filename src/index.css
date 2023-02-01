@@ -233,7 +233,18 @@ ul {
   letter-spacing: var(--letterSpacing);
   text-transform: capitalize;
 }
+/* section */
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
 
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
 /* loading */
 .loading {
   width: 6rem;
