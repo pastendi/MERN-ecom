@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
-import { links } from '../utils/NavLinks'
+import { links } from '../utils/constants'
 import { FaBars } from 'react-icons/fa'
 import { Wrapper } from '../../style/Navbar'
 import UserOption from '../others/UserOption'

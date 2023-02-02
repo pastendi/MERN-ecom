@@ -1,6 +1,6 @@
 import React from 'react'
 import { Wrapper } from '../../style/Services'
-import { ServicesList } from '../utils/ServicesList'
+import { servicesList } from '../utils/constants'
 
 const Services = () => {
   return (
@@ -15,7 +15,7 @@ const Services = () => {
           </p>
         </article>
         <div className='services-center'>
-          {ServicesList.map((service) => {
+          {servicesList.map((service) => {
             const { id, icon, title, text } = service
             return (
               <article key={id} className='service'>
