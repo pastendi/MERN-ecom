@@ -5,6 +5,9 @@ import { formatPrice } from '../components/utils/formatPrice'
 import { Error, Loading } from '../components/others'
 import { Wrapper } from '../style/SingleProduct'
 import { useProductsContext } from '../context/ProductsContext'
+import ProductImages from '../components/SingleProduct/ProductImages'
+import Stars from '../components/SingleProduct/Stars'
+import AddToCart from '../components/SingleProduct/AddToCart'
 const SingleProduct = () => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -22,7 +25,49 @@ const SingleProduct = () => {
   }, [single_product_error])
   if (loading) return <Loading />
   if (single_product_error) return <Error />
-  return <Wrapper>Single Product : {selectedProduct.name}</Wrapper>
+  const {
+    name,
+    price,
+    description,
+    stock,
+    stars,
+    reviews,
+    id: sku,
+    company,
+    images,
+  } = selectedProduct
+  return (
+    <Wrapper>
+      <div className='section section-center page'>
+        <Link to='/products' className='btn'>
+          Back to products
+        </Link>
+        <div className='products-center'>
+          <ProductImages />
+          <div className='content'>
+            <h2>{name}</h2>
+            <Stars />
+            <h5 className='price'>{formatPrice(price)}</h5>
+            <p className='desc'>{description}</p>
+            <p className='info'>
+              <span>Available: </span>
+              {stock > 0 ? 'In stock' : 'Out of stock'}
+            </p>
+            <p className='info'>
+              <span>SKU: </span>
+              {sku}
+            </p>
+            <p className='info'>
+              <span>Brand: </span>
+              {company}
+            </p>
+            <hr />
+            {stock > 0 && <AddToCart />}
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  )
 }
 
 export default SingleProduct

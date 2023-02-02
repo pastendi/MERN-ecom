@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
-import { formatprice } from '../utils/formatPrice'
+import { formatPrice } from '../utils/formatPrice'
 import { Link } from 'react-router-dom'
 import { Wrapper } from '../../style/Product'
 const Product = ({ image, name, price, id }) => {
@@ -14,7 +14,7 @@ const Product = ({ image, name, price, id }) => {
       </div>
       <footer>
         <h5>{name}</h5>
-        <p>{formatprice(price)}</p>
+        <p>{formatPrice(price)}</p>
       </footer>
     </Wrapper>
   )
