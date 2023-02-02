@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.section`
-  padding: 5rem 0;
   background: var(--primary-100);
   .header {
     h3 {
@@ -12,12 +11,12 @@ export const Wrapper = styled.section`
     }
   }
   .services-center {
-    margin-top: 4rem;
+    margin-top: 2rem;
     display: grid;
     gap: 2.5rem;
   }
   .service {
-    background: var(--primary-300);
+    background: var(--primary-200);
     text-align: center;
     padding: 2.5rem 2rem;
     border-radius: var(--borderRadius);
@@ -51,9 +50,6 @@ export const Wrapper = styled.section`
     padding: 0;
     .section-center {
       transform: translateY(5rem);
-    }
-    .services-center {
-      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Wrapper } from '../style/Error'
+import { Wrapper } from '../style/NotFound'
 
 const Error = () => {
   return (

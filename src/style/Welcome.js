@@ -15,6 +15,7 @@ export const Wrapper = styled.section`
     font-size: 1rem;
   }
   @media (min-width: 992px) {
+    margin-bottom: 2rem;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     .img-container {

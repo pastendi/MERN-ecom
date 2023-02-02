@@ -3,7 +3,7 @@ import { Wrapper } from '../../style/Contacts'
 
 const Contacts = () => {
   return (
-    <Wrapper>
+    <Wrapper className='section'>
       <div className='section-center'>
         <h3>Shop now 20% off</h3>
         <div className='content'>

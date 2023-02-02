@@ -3,7 +3,7 @@ import Products from './Products'
 import SingleProduct from './SingleProduct'
 import About from './About'
 import Cart from './Cart'
-import Error from './Error'
+import NotFound from './NotFound'
 import Checkout from './Checkout'
 import PrivateRoute from './Private'
 
@@ -14,6 +14,6 @@ export {
   About,
   Cart,
   Checkout,
-  Error,
+  NotFound,
   PrivateRoute,
 }

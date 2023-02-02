@@ -8,7 +8,7 @@ import {
   About,
   Cart,
   Checkout,
-  Error,
+  NotFound,
   PrivateRoute,
 } from './pages'
 function App() {
@@ -32,7 +32,7 @@ function App() {
             }
           />
         </Route>
-        <Route path='*' element={<Error />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

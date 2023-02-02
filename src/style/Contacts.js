@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.section`
-  padding: 5rem 0;
   background: var(--light-red);
+
   p {
     margin-bottom: 1rem;
   }
@@ -24,8 +24,8 @@ export const Wrapper = styled.section`
     p {
       margin-bottom: 0;
     }
-  }
-  @media (min-width: 1280px) {
-    padding: 10rem 0;
+    h3 {
+      margin-top: 5rem;
+    }
   }
 `

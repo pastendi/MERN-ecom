@@ -4,7 +4,7 @@ import { servicesList } from '../utils/constants'
 
 const Services = () => {
   return (
-    <Wrapper>
+    <Wrapper className='section'>
       <div className='section-center'>
         <article className='header'>
           <h3>Our services</h3>
