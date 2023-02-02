@@ -38,12 +38,12 @@ const SingleProduct = () => {
   } = selectedProduct
   return (
     <Wrapper>
-      <div className='section section-center page'>
+      <div className='section section-center page-100'>
         <Link to='/products' className='btn'>
           Back to products
         </Link>
-        <div className='products-center'>
-          <ProductImages />
+        <div className='product-center'>
+          <ProductImages images={images} />
           <div className='content'>
             <h2>{name}</h2>
             <Stars />

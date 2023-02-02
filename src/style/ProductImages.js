@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.section`
-  .main {
-    height: 600px;
-  }
   img {
     border-radius: var(--borderRadius);
+  }
+  .main {
+    height: 600px;
   }
   .gallery {
     margin-top: 1rem;
@@ -18,11 +18,11 @@ export const Wrapper = styled.section`
     }
   }
   .active {
-    box-shadow: 0px 0px 0px 2px var(--clr-primary-5);
+    box-shadow: 0px 0px 0px 2px var(--primary-500);
   }
   @media (max-width: 576px) {
     .main {
-      height: 300px;
+      height: 400px;
     }
     .gallery {
       img {
