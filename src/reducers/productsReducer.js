@@ -7,7 +7,7 @@ import {
   REQUEST_PRODUCTS_SUCCESS,
   REQUEST_SINGLE_PRODUCT_SUCCESS,
 } from '../actions'
-const productsReducer = (state, action) => {
+const ProductsReducer = (state, action) => {
   if (action.type === SIDEBAR_OPEN) {
     return { ...state, isSidebarOpen: true }
   }
@@ -44,4 +44,4 @@ const productsReducer = (state, action) => {
   throw new Error(`No matching "${action.type}" - action type`)
 }
 
-export default productsReducer
+export default ProductsReducer

@@ -1,5 +1,5 @@
 import React, { useContext, useReducer } from 'react'
-import reducer from '../reducers/productsReducer'
+import reducer from '../reducers/ProductsReducer'
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
