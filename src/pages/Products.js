@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Filter, Sort, ProductList } from '../components/productsPage'
 
 const Products = () => {
+  const [isGridView, setIsGridView] = useState(true)
   return (
     <Wrapper className='page'>
       <div className='section-center products'>
         <Filter />
         <div>
-          <Sort />
-          <ProductList />
+          <Sort isGridView={isGridView} setIsGridView={setIsGridView} />
+          <ProductList isGridView={isGridView} />
         </div>
       </div>
     </Wrapper>
