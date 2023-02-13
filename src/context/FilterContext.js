@@ -9,6 +9,7 @@ import {
   SET_GRIDVIEW,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
+  CLEAR_FILTERS,
 } from '../actions'
 const initialState = {
   allProducts: [],
@@ -44,9 +45,24 @@ export const FilterProvider = ({ children }) => {
   const changeFilters = (e) => {
     let name = e.target.name
     let value = e.target.value
+    // since categories are displayed in button and text from button cannot be extracted as above
+    if (name === 'category') {
+      value = e.target.textContent
+    }
+    if (name === 'color') {
+      value = e.target.dataset.color
+    }
+    if (name === 'price') {
+      value = Number(value)
+    }
+    if (name === 'shipping') {
+      value = e.target.checked
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
-  const clearFilters = () => {}
+  const clearFilters = () => {
+    dispatch({ type: CLEAR_FILTERS })
+  }
   useEffect(() => {
     dispatch({ type: LOAD_PRODUCTS, payload: products })
   }, [products])
