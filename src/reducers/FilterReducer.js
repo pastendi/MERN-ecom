@@ -4,13 +4,24 @@ import {
   UPDATE_SORT,
   SET_LISTVIEW,
   SET_GRIDVIEW,
+  UPDATE_FILTERS,
+  FILTER_PRODUCTS,
 } from '../actions'
 const FilterReducer = (state, action) => {
   if (action.type === LOAD_PRODUCTS) {
+    let prices = action.payload.map((p) => p.price)
+    let maxPrice = Math.max(...prices)
+    let minPrice = Math.min(...prices)
     return {
       ...state,
       allProducts: [...action.payload],
       filteredProducts: [...action.payload],
+      filters: {
+        ...state.filters,
+        max_price: maxPrice,
+        price: maxPrice,
+        min_price: minPrice,
+      },
     }
   }
   if (action.type === SET_GRIDVIEW) {
@@ -21,6 +32,13 @@ const FilterReducer = (state, action) => {
   }
   if (action.type === UPDATE_SORT) {
     return { ...state, sort: action.payload }
+  }
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload
+    return { ...state, filters: { ...state.filters, [name]: value } }
+  }
+  if (action.type === FILTER_PRODUCTS) {
+    return { ...state }
   }
   if (action.type === SORT_PRODUCTS) {
     const { sort, filteredProducts } = state
