@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaCheck, FaMinus, FaPlus } from 'react-icons/fa'
+import { FaCheck } from 'react-icons/fa'
 import { Wrapper } from '../../style/AddToCart'
 import { useCartContext } from '../../context/CartContext'
+import Quantity from '../others/Quantity'
 
 const AddToCart = ({ product }) => {
   const { id, stock, colors } = product
@@ -49,15 +50,11 @@ const AddToCart = ({ product }) => {
           })}
         </div>
       </div>
-      <div className='amounts'>
-        <button type='button' onClick={decreaseQuantity}>
-          <FaMinus />
-        </button>
-        <h2>{quantity}</h2>
-        <button type='button' onClick={increaseQuantity}>
-          <FaPlus />
-        </button>
-      </div>
+      <Quantity
+        increase={increaseQuantity}
+        decrease={decreaseQuantity}
+        quantity={quantity}
+      />
       <Link
         to='/cart'
         className='btn'
