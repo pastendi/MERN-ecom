@@ -2,28 +2,30 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaCheck, FaMinus, FaPlus } from 'react-icons/fa'
 import { Wrapper } from '../../style/AddToCart'
+import { useCartContext } from '../../context/CartContext'
 
 const AddToCart = ({ product }) => {
   const { id, stock, colors } = product
+  const { addToCart } = useCartContext()
   const [mainColor, setMainColor] = useState(colors[0])
-  const [amount, setAmount] = useState(1)
-  const increaseAmount = () => {
-    setAmount((amount) => {
-      let increasedAmount = amount + 1
-      if (increasedAmount > stock) {
-        increasedAmount = stock
+  const [quantity, setQuantity] = useState(1)
+  const increaseQuantity = () => {
+    setQuantity((quantity) => {
+      let increasedQuantity = quantity + 1
+      if (increasedQuantity > stock) {
+        increasedQuantity = stock
       }
-      return increasedAmount
+      return increasedQuantity
     })
   }
 
-  const decreaseAmount = () => {
-    setAmount((amount) => {
-      let decreasedAmount = amount - 1
-      if (decreasedAmount < 1) {
-        decreasedAmount = 1
+  const decreaseQuantity = () => {
+    setQuantity((quantity) => {
+      let decreasedQuantity = quantity - 1
+      if (decreasedQuantity < 1) {
+        decreasedQuantity = 1
       }
-      return decreasedAmount
+      return decreasedQuantity
     })
   }
   return (
@@ -48,15 +50,19 @@ const AddToCart = ({ product }) => {
         </div>
       </div>
       <div className='amounts'>
-        <button type='button' onClick={decreaseAmount}>
+        <button type='button' onClick={decreaseQuantity}>
           <FaMinus />
         </button>
-        <h2>{amount}</h2>
-        <button type='button' onClick={increaseAmount}>
+        <h2>{quantity}</h2>
+        <button type='button' onClick={increaseQuantity}>
           <FaPlus />
         </button>
       </div>
-      <Link to='/cart' className='btn'>
+      <Link
+        to='/cart'
+        className='btn'
+        onClick={() => addToCart(id, mainColor, quantity, product)}
+      >
         Add to cart
       </Link>
     </Wrapper>

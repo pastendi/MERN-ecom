@@ -58,8 +58,8 @@ const FilterReducer = (state, action) => {
       )
     }
     if (color !== 'all') {
-      filterResult = filterResult.filter(
-        (product) => product.colors.indexOf(color) > -1
+      filterResult = filterResult.filter((product) =>
+        product.colors.find((c) => c === color)
       )
     }
     if (shipping) {
