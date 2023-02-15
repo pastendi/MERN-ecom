@@ -6,10 +6,14 @@ import Quantity from '../others/Quantity'
 import { formatPrice } from '../utils/formatPrice'
 
 const CartItem = ({ id, image, name, color, price, quantity }) => {
-  const { removeItem } = useCartContext()
+  const { removeItem, toggleQuantity } = useCartContext()
   //remaining
-  const increase = () => {}
-  const decrease = () => {}
+  const increase = () => {
+    toggleQuantity(id, 'inc')
+  }
+  const decrease = () => {
+    toggleQuantity(id, 'dec')
+  }
   return (
     <Wrapper>
       <div className='title'>

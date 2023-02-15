@@ -1,4 +1,9 @@
-import { ADD_TO_CART, REMOVE_CART_ITEM, CLEAR_CART } from '../actions'
+import {
+  ADD_TO_CART,
+  REMOVE_CART_ITEM,
+  CLEAR_CART,
+  TOGGLE_CART_ITEM_QUANTITY,
+} from '../actions'
 const CartReducer = (state, action) => {
   if (action.type === REMOVE_CART_ITEM) {
     const newCart = state.cart.filter((i) => i.id !== action.payload)
@@ -6,6 +11,31 @@ const CartReducer = (state, action) => {
   }
   if (action.type === CLEAR_CART) {
     return { ...state, cart: [] }
+  }
+  if (action.type === TOGGLE_CART_ITEM_QUANTITY) {
+    const { id, value } = action.payload
+    const newCart = state.cart.map((item) => {
+      if (item.id === id) {
+        if (value === 'inc') {
+          let newQuantity = item.quantity + 1
+          if (newQuantity > item.max) {
+            newQuantity = item.max
+          }
+          return { ...item, quantity: newQuantity }
+        }
+        if (value === 'dec') {
+          let newQuantity = item.quantity - 1
+          if (newQuantity < 1) {
+            newQuantity = 1
+          }
+          return { ...item, quantity: newQuantity }
+        }
+        return item
+      } else {
+        return item
+      }
+    })
+    return { ...state, cart: newCart }
   }
   if (action.type === ADD_TO_CART) {
     const { id, color, quantity, product } = action.payload
