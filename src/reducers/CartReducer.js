@@ -1,5 +1,12 @@
-import { ADD_TO_CART } from '../actions'
+import { ADD_TO_CART, REMOVE_CART_ITEM, CLEAR_CART } from '../actions'
 const CartReducer = (state, action) => {
+  if (action.type === REMOVE_CART_ITEM) {
+    const newCart = state.cart.filter((i) => i.id !== action.payload)
+    return { ...state, cart: newCart }
+  }
+  if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] }
+  }
   if (action.type === ADD_TO_CART) {
     const { id, color, quantity, product } = action.payload
     const existingItem = state.cart.find((i) => i.id === id + color)
