@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/CartReducer'
 import {
   ADD_TO_CART,
+  CART_TOTALS,
   CLEAR_CART,
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_QUANTITY,
@@ -39,6 +40,7 @@ export const CartProvider = ({ children }) => {
   }
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
+    dispatch({ type: CART_TOTALS })
   }, [state.cart])
   return (
     <CartContext.Provider

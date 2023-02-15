@@ -3,8 +3,21 @@ import {
   REMOVE_CART_ITEM,
   CLEAR_CART,
   TOGGLE_CART_ITEM_QUANTITY,
+  CART_TOTALS,
 } from '../actions'
 const CartReducer = (state, action) => {
+  if (action.type === CART_TOTALS) {
+    const { total_items, total_amount } = state.cart.reduce(
+      (total, cartItem) => {
+        const { quantity, price } = cartItem
+        total.total_items += quantity
+        total.total_amount += quantity * price
+        return total
+      },
+      { total_items: 0, total_amount: 0 }
+    )
+    return { ...state, total_items, total_amount }
+  }
   if (action.type === REMOVE_CART_ITEM) {
     const newCart = state.cart.filter((i) => i.id !== action.payload)
     return { ...state, cart: newCart }
