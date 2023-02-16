@@ -6,9 +6,11 @@ import { FaTimes } from 'react-icons/fa'
 import UserOption from '../others/UserOption'
 import { Wrapper } from '../../style/Sidebar'
 import { useProductsContext } from '../../context/ProductsContext'
+import { useUserContext } from '../../context/UserContext'
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext()
+  const { myUser } = useUserContext()
   return (
     <Wrapper>
       <aside
@@ -32,9 +34,11 @@ const Sidebar = () => {
               </li>
             )
           })}
-          <li onClick={() => closeSidebar()}>
-            <Link to='/checkout'>Checkout</Link>
-          </li>
+          {myUser && (
+            <li onClick={() => closeSidebar()}>
+              <Link to='/checkout'>Checkout</Link>
+            </li>
+          )}
         </ul>
         <UserOption />
       </aside>

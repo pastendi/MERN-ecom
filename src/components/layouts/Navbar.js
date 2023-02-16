@@ -6,9 +6,11 @@ import { FaBars } from 'react-icons/fa'
 import { Wrapper } from '../../style/Navbar'
 import UserOption from '../others/UserOption'
 import { useProductsContext } from '../../context/ProductsContext'
+import { useUserContext } from '../../context/UserContext'
 
 const Navbar = () => {
   const { openSidebar } = useProductsContext()
+  const { myUser } = useUserContext()
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -33,6 +35,11 @@ const Navbar = () => {
               </li>
             )
           })}
+          {myUser && (
+            <li>
+              <Link to='/checkout'>Checkout</Link>
+            </li>
+          )}
         </ul>
         <div className='user-option'>
           <UserOption />
