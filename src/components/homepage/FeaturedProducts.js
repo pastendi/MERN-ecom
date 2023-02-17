@@ -4,6 +4,7 @@ import { useProductsContext } from '../../context/ProductsContext'
 import Loading from '../others/Loading'
 import Product from '../others/Product'
 import Error from '../others/Error'
+import { Link } from 'react-router-dom'
 
 const FeaturedProducts = () => {
   const { featuredProducts, loading, error } = useProductsContext()
@@ -26,6 +27,9 @@ const FeaturedProducts = () => {
           })}
         </div>
       </div>
+      <Link to='/products' className='btn'>
+        View more
+      </Link>
     </Wrapper>
   )
 }
