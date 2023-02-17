@@ -15,6 +15,7 @@ const SingleProduct = () => {
     useProductsContext()
   useEffect(() => {
     fetchSingleProduct(`${single_product_url}${id}`)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   useEffect(() => {
     if (single_product_error) {
@@ -22,6 +23,7 @@ const SingleProduct = () => {
         navigate('/')
       }, 3000)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [single_product_error])
   if (loading) return <Loading />
   if (single_product_error) return <Error />

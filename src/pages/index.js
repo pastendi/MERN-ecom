@@ -6,6 +6,7 @@ import Cart from './Cart'
 import NotFound from './NotFound'
 import Checkout from './Checkout'
 import PrivateRoute from './Private'
+import AuthWrapper from './AuthWrapper'
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   Checkout,
   NotFound,
   PrivateRoute,
+  AuthWrapper,
 }

@@ -10,32 +10,35 @@ import {
   Checkout,
   NotFound,
   PrivateRoute,
+  AuthWrapper,
 } from './pages'
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Sidebar />
-      <Routes>
-        <Route path='/'>
-          <Route index element={<Home />} />
-          <Route path='about' element={<About />} />
-          <Route path='products' element={<Products />} />
-          <Route path='products/:id' element={<SingleProduct />} />
-          <Route path='cart' element={<Cart />} />
-          <Route
-            path='checkout'
-            element={
-              <PrivateRoute>
-                <Checkout />
-              </PrivateRoute>
-            }
-          />
-        </Route>
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <AuthWrapper>
+      <Router>
+        <Navbar />
+        <Sidebar />
+        <Routes>
+          <Route path='/'>
+            <Route index element={<Home />} />
+            <Route path='about' element={<About />} />
+            <Route path='products' element={<Products />} />
+            <Route path='products/:id' element={<SingleProduct />} />
+            <Route path='cart' element={<Cart />} />
+            <Route
+              path='checkout'
+              element={
+                <PrivateRoute>
+                  <Checkout />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </AuthWrapper>
   )
 }
 

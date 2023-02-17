@@ -1,7 +1,6 @@
 import React from 'react'
 import { Wrapper } from '../../style/FeaturedProducts'
 import { useProductsContext } from '../../context/ProductsContext'
-import { Link } from 'react-router-dom'
 import Loading from '../others/Loading'
 import Product from '../others/Product'
 import Error from '../others/Error'
